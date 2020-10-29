@@ -37,16 +37,26 @@ function listaAlunos() {
     let e = document.getElementById("turmas_select");
     let id = e.value;
     let lista = document.querySelector('#lista_alunos');
+    let tbl = document.createElement('table');
+    let tbdy = document.createElement('tbody');
     for (let i = 0; i < turma[id].aluno.length; i++) {
-        var x = document.createElement("INPUT");
+        let tr = document.createElement('tr');
+    	let td1 = document.createElement('td');
+        let txt = document.createElement('label');
+        txt.setAttribute("for", "aluno-"+i);
+        txt.appendChild(document.createTextNode(turma[id].aluno[i]));
+        td1.appendChild(txt);
+    	let td2 = document.createElement('td');
+        let x = document.createElement("INPUT");
         x.setAttribute("type", "checkbox");
         x.setAttribute("id", "aluno-"+i);
-        var p = document.createElement("p");
-        var node = document.createTextNode(turma[id].aluno[i]);
-        p.appendChild(node);
-        p.appendChild(x);
-        lista.appendChild(p);
+        td2.appendChild(x);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbdy.appendChild(tr);
     }
+    tbl.appendChild(tbdy);
+    lista.appendChild(tbl);
 
     let copiar = document.createElement("button");
     copiar.innerText = "Copiar lista de presença";
