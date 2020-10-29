@@ -1,0 +1,14 @@
+.title {
+    width: 100%;
+    text-align:center
+}
+
+.corpo {
+    margin: 20px;
+}
+
+.lista {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
